@@ -32,3 +32,17 @@ def sinc2(x):
         return 1
     else:
         return np.sin(x) / (x ** 2)
+    
+def cerof(x, y, error = 0.01):
+    x0 = []
+    y0 = []
+    
+    for i, X in enumerate(x):
+        if np.abs(y[i]) <= error:
+            x0.append(X)
+            y0.append(y[i])
+            
+    x0 = np.asarray(x0)
+    y0 = np.asarray(y0)
+    
+    return x0, y0

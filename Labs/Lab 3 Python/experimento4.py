@@ -18,26 +18,26 @@ def derivada(x, y):
     dx = []
     
     for i in range(N-1):
-        dx.append(x[i + 1] - x[i])
+            dx.append(x[i + 1] - x[i])
         
     # OJO: Si el vector x fuese definido de forma equiespaciada, por ejemplo, con linspace
     # , basta con dx = x[1] - x[0].
     # Además, en ese caso, dx[0] = dx[N - 1] = dx y dx[i + 1] + dx[i - 1] = 2*dx
     
-    deriv = []
+    derivada = []
 
-    for i, Y in enumerate(y):
+    for i in range(N):
         
         if i == 0:                   # Extremo izquierdo: usamos derivada forward
-            der1 = (y[1] - y[0]) / dx[0]
-            der.append(der1)
+            deriv = (y[1] - y[0]) / dx[0]
+            derivada.append(deriv)
             
         elif i == N - 1:             # Extremo derecho: usamos derivada backward (recordar que índice de x e y llega hasta N-1
-            der1 = (y[N - 1] - y[N - 2]) / dx[N - 1]
-            der.append(der1)
+            deriv = (y[N - 1] - y[N - 2]) / dx[N - 2]
+            derivada.append(deriv)
             
-        else:                        # Extremo izquierdo: usamos derivada forward
-            der1 = (y[i + 1] - y[i - 1]) / (dx[i + 1] + dx[i - 1])
-            der.append(der1)
+        else:                        # Centro: usamos derivada central
+            deriv = (y[i + 1] - y[i - 1]) / (dx[i] + dx[i - 1])
+            derivada.append(deriv)
             
-    return der
+    return derivada

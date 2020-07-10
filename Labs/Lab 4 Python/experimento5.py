@@ -4,9 +4,32 @@ import numpy as np
 
 #def secante(x0, x1, f, error = 0.01):
     
-#def newtraph(x0, f, error=):
+def newtonraphson(f, x0, dx=0.01, error=0.0001, max_iter=100000):
+    
+    xn = x0
+    
+    for n in range(0, max_iter):
+        
+        fn = f(xn)
+        
+        if abs(fn) < error:
+            print('Solución tras ', n, ' iteraciones.')
+            return xn
+        
+        dfn = (f(xn + dx) - f(xn - dx)) / (2 * dx)
+        
+        if dfn == 0:
+            print('Método se indefine (derivada se anula).')
+            return None
+        
+        xn = xn - fn/dfn
+        
+    print('Método no converge (se supera el máximo de iteraciones).')
+    return None
+
 
 def cerof(x, y, error = 0.01):
+    
     x0 = []
     y0 = []
     
@@ -19,6 +42,7 @@ def cerof(x, y, error = 0.01):
     y0 = np.asarray(y0)
     
     return x0, y0
+
 
 def ceros(a, b, f, error=0.01):
     """
@@ -71,6 +95,7 @@ def ceros(a, b, f, error=0.01):
         
         return ceros, fceros
     
+    
 def derivadafun(a, b, f, dx=0.01):
     """
     Devuelve la derivada de una función, considerando que en extremo izquierdo sólo se puede
@@ -103,7 +128,6 @@ def derivadafun(a, b, f, dx=0.01):
     derivada = np.asarray(derivada)
     
     return derivada
-
 
 
 def derivadavec(x, y):
@@ -147,13 +171,3 @@ def derivadavec(x, y):
     derivada = np.asarray(derivada)       
     
     return derivada
-
-### TERMINAR
-#def descenso(f):
-    
-#    for j in range(max_iterations):
-#    step = step_size * df(x)
-#    x -= step
-
-    #if abs(step) <= step_tolerance:
-     #   break

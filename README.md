@@ -1,5 +1,5 @@
 # MN_1
-## Introducción a Métodos Numéricos
+## Métodos Numéricos 1
 <hr>
 Este repositorio tiene todo el material correspondiente al curso <b>Introduction to Numerical Methods</b>, disponible en el canal de <a href="https://www.youtube.com/channel/UC-HeCFOIgcph4_aEBNYt71g">Youtube de DataOwl</a>.   &nbsp;
   
